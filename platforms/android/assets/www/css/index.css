@@ -33,7 +33,7 @@
 }
 body {
     background-attachment: fixed;
-    font-family: "HelveticaNeue-Light","HelveticaNeue",Helvetica,Arial,sans-serif;
+	font-family:'BYekan' !important;
     font-size: 12px;
     height: 100%;
     margin: 0;
@@ -105,11 +105,15 @@ ul{ list-style: outside none none; padding:0 !important}
 	margin:50px 0 0 0 !important;}
 .mergicon{padding: 10px;} 	
 .marg_btn10{margin-bottom:10px !important; }
+.with80{ width:80% !important; margin:0 auto !important; text-align:justify !important; direction:rtl !important;}
+.ui-field-contain > label ~ [class*="ui-"], .ui-field-contain .ui-controlgroup-controls{float:right !important; margin:15px !important; width:80% !important; direction:rtl; text-align:right}
+.ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label{float:right !important; width:20% !important; text-align:left !important; }
 .right {
     direction: rtl !important;
     text-align: justify !important;
 	
 }
+input{text-align:right !important};
 .font_big {
 	font-size:21px !important;
 	font-family:'BYekan';
@@ -291,7 +295,7 @@ input 				{
 input:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
-label 				 {
+.group label 				 {
   color:#999; 
   font-size:18px;
   font-weight:normal;
@@ -367,5 +371,145 @@ input:focus ~ .highlight {
 	from { background:#5264AE; }
   to 	{ width:0; background:transparent; }
 }
+/*---------------------------- end material input----------------------------------------------------*/
 
+/*---------------------------- start toast----------------------------------------------------*/
+
+.toast_material{
+  background-color: #000;
+  height: auto;
+  min-width: 100px;
+  max-width: 300px;
+  z-index: 90;
+  border-radius: 2px;
+  opacity: 1;
+  position: fixed;
+  padding: 14px 16px;
+  bottom:70px !important ;
+  left: 50%;
+  margin-left:-50px;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+text-shadow: 0 0px 0 #f3f3f3 !important;
+  background-color: #323232;
+      border-radius: 10px;
+}
+.toast_material p{
+	font-family:'BYekan' !important;
+  padding: 5px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-family: inherit;
+  margin: 0;
+  width: 100%;
+}
+@media (max-width: 768px){
+  .toast_material{
+left: 50%;
+  margin-left:-130px;
+    border-radius: 12px;
+  }
+  .toast_material p{
+    padding: 0px 12px;
+    font-size: 12px;
+  }
+}
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+/*---------------------------- end toast----------------------------------------------------*/
 	

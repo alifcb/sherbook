@@ -11,10 +11,16 @@
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
 <script src="js/jquery-1.11.3.min.js"></script> 
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/java.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angularjs.js"></script>
+<script src="js/angular-sanitize.min.js"></script>
+
+
+
 
 <script>
+ 
 function resizeText(multiplier) {
  
   if (document.getElementById('font').style.fontSize == "") {
@@ -25,10 +31,22 @@ function resizeText(multiplier) {
   }
 }
 
+function resize_en(multiplier) {
+ 
+  if (document.getElementById('font2').style.fontSize == "") {
+    document.getElementById('font2').style.fontSize = "1.0em";}
+  if(document.getElementById('font2').style.fontSize =="0.4em" && multiplier==-1){}
+  else if(document.getElementById('font2').style.fontSize =="1.6em" && multiplier==1){}else{
+  document.getElementById('font2').style.fontSize = parseFloat(document.getElementById('font2').style.fontSize) + (multiplier * 0.2) + "em";
+  }
+}
+
 </script>
 <title>نامیا</title>
 </head>
 <body ng-app="App"   ng-controller="CenterCTRL" ng-cloak>
+
+<!-- page farsi--------------------------------------------------------------->
 
 <div data-role="page" id="pageone"  class="backg">  
   <div data-role="main" class="ui-content marg80">
@@ -41,7 +59,6 @@ function resizeText(multiplier) {
     </div>
         
     <div class="ui-block-a">
-    <button onclick="window.plugins.socialsharing.share('Message only')">message only</button>
         <ul> 
         <li><a href="#lang"  ng-click="mylan(1)"   data-transition="fade"  data-direction="reverse"><img  width="50" src="img/farsi.png"></a></li>
         <li><a href="#lang" ng-click="mylan(2)"   data-transition="fade"  data-direction="reverse"><img width="90" src="img/torki.png"></a></li>
@@ -52,7 +69,7 @@ function resizeText(multiplier) {
 </div>
 </div>
  
-<!-- page farsi--------------------------------------------------------------->
+<!-- page list--------------------------------------------------------------->
 
 <div data-role="page" id="lang"  class="backg">
   <div data-role="panel" id="myPanel"   data-position="right" data-display="overlay"> 
@@ -60,7 +77,7 @@ function resizeText(multiplier) {
     <p>{{texts}}</p>
   </div> 
   
-  <div data-role="main" class="ui-content marg70">
+<div data-role="main" class="ui-content marg70">
 
 <div class="ui-grid-solo  ui-responsive">
  <div class="ui-block-a">
@@ -70,14 +87,14 @@ function resizeText(multiplier) {
     </div>
 <div class="ui-block-a">
 <ul> 
- 
+
 <li><a href="#ashar"   data-transition="fade"  data-direction="reverse"><img   src="{{list1}}"></a></li>
-<li><a href="#"   data-transition="fade"  data-direction="reverse"><img width="115" src="{{list2}}"></a></li>
+<li><a href="#sher1"  data-transition="fade"  data-direction="reverse"><img width="115" src="{{list2}}"></a></li>
 <li><a href="#ashar"   data-transition="fade"  data-direction="reverse"><img  src="{{list3}}"></a></li>
-<li><a href="#"   data-transition="fade"  data-direction="reverse"><img width="55" src="{{list4}}"></a></li>
-<li><a href="#ashar"   data-transition="fade"  data-direction="reverse"><img  src="{{list5}}"></a></li>
-<li><a href="#"   data-transition="fade"  data-direction="reverse"><img width="90" src="{{list6}}"></a></li>
-<li><a href="#ashar"   data-transition="fade"  data-direction="reverse"><img   src="{{list7}}"></a></li>
+<li><a href="#asharse"   data-transition="fade"  data-direction="reverse"><img  src="{{list4}}"></a></li>
+<li><a href="#aboutsh"   data-transition="fade"  data-direction="reverse"><img  src="{{list5}}"></a></li>
+<li><a href="#about"   data-transition="fade"  data-direction="reverse"><img  src="{{list6}}"></a></li>
+<li><a href="#nazar"   data-transition="fade"  data-direction="reverse"><img   src="{{list7}}"></a></li>
  
 </ul>
 
@@ -85,10 +102,118 @@ function resizeText(multiplier) {
 </div>
 </div>
 </div>
+<!-- page about shaer--------------------------------------------------------------->
 
+<div data-role="page" id="aboutsh"  class="backg">  
+  <div data-role="main" class="ui-content marg80">
+
+    <div class="ui-grid-solo  ui-responsive"> 
+        <div class="ui-block-a">
+        <ul> 
+        <li><a ><img  width="230" src="img/title.png"></a></li>
+        </ul>
+    </div>
+        
+    <div class="ui-block-a with80">
+<p>{{abouts}}</p>
+    </div>
+    
+</div>
+</div>
+</div>
+
+<!-- page about about--------------------------------------------------------------->
+
+<div data-role="page" id="about"  class="backg">  
+  <div data-role="main" class="ui-content marg80">
+
+    <div class="ui-grid-solo  ui-responsive"> 
+        <div class="ui-block-a">
+        <ul> 
+        <li><a ><img  width="230" src="img/title.png"></a></li>
+        </ul>
+    </div>
+        
+    <div class="ui-block-a with80">
+<p>{{about}}</p>
+    </div>
+    
+</div>
+</div>
+</div>
+
+<!-- page about nazar--------------------------------------------------------------->
+
+<div data-role="page" id="nazar"  class="backg">  
+  <div data-role="main" class="ui-content marg80">
+
+    <div class="ui-grid-solo  ui-responsive"> 
+        <div class="ui-block-a">
+        <ul> 
+        <li><a ><img  width="230" src="img/title.png"></a></li>
+        </ul>
+    </div>
+        
+    <div class="ui-block-a with80">
+<p></p>
+<form method="post" >
+      <div class="ui-field-contain">
+
+        <input type="text" name="fullname" placeholder="{{name}}" id="fullname">       
+ 
+        <input type="email" name="bday"  placeholder="{{email}}"   id="bday">
+ 
+        <textarea  name="descript" id="descript"  placeholder="{{description}}"   ></textarea>
+      </div>
+      <input type="submit" data-inline="true" value="{{sabet}}">
+    </form>
+    </div>
+    
+</div>
+</div>
+</div>
 <!-- page onvan--------------------------------------------------------------->
 
 <div data-role="page" id="ashar"  class="backg">
+  <div data-role="panel" id="myPanel"   data-position="right" data-display="overlay"> 
+    <h2>Panel Header</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+  </div> 
+  
+  <div data-role="main" class="ui-content margz">
+
+    <div class="ui-grid-solo  ui-responsive  marg30">
+ <div class="ui-block-a">
+    <ul> 
+    <li><a ><img  src="{{ashar}}"></a></li>
+    </ul>
+</div>
+    
+<div class="ui-block-a">
+ <ul class="scroll"  style="height:300px !important"> 
+  <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+    <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+    <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+    <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+    <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+    <li><a href="#sher1"  data-transition="fade"  data-direction="reverse">شعر 1</a></li>
+  <li><a href="#"  data-transition="fade"  data-direction="reverse">شعر 2</a></li>
+  
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- page onvan hamrah search--------------------------------------------------------------->
+
+<div data-role="page" id="asharse"  class="backg">
   <div data-role="panel" id="myPanel"   data-position="right" data-display="overlay"> 
     <h2>Panel Header</h2>
     <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
@@ -140,46 +265,30 @@ function resizeText(multiplier) {
   
   <div data-role="main" class="ui-content margz">
  <div class="ui-grid-solo  ui-responsive">
-
  
 <div class="ui-block-a center marg_btn10">
 <a class="mergicon" href="#sher1"  data-transition="fade" > <img src="img/farsi.png"></a>
-<a class="mergicon" href="#sher1"  data-transition="fade" > <img src="img/night.png"></a>
-<a class="mergicon" href=""><img src="img/connection.png"></a>
+<a class="mergicon"   ng-click="faver(id);" > <img src="img/night.png"></a>
+<a class="mergicon"  onclick="window.plugins.socialsharing.share(document.getElementById('font').innerHTML)"><img src="img/connection.png"></a>
 <a class="mergicon" href="#sher2"><img src="img/english.png"></a>
 </div> 
 
 <div class="ui-block-a center">
 <a  >عنوان شعر</a>
 </div>
-   <div class="ui-block-a">  
- <ul class="scroll" id="font"> 
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-
-
-<li> بی ترس، بی دلهره
-</li>
-<li>در میان ازدحام عقربه ها
-</li>
-</ul>
-
+<div class="ui-block-a"> 
+ <ul class="scroll" id="font"  ng-bind-html="myHTML"> gg
+  </ul>
 </div>
 
 <div class="ui-block-a center">
 <a class="mergicon"  onclick="resizeText(-1)"><img src="img/mainz.png"></a>
 <a class="mergicon" onclick="resizeText(1)"><img src="img/plus.png"></a>
-<a class="mergicon" href=""><img src="img/pencil.png"></a>
-<a class="mergicon" href=""><img src="img/track.png"></a>
-<a class="mergicon" href=""><img src="img/play.png"></a>
+<a class="mergicon" ng-click="descript(ides)"><img src="img/pencil.png"></a>
+<a class="mergicon" onclick="document.getElementById('playe').pause()"><img src="img/track.png"></a>
+<a class="mergicon" onclick="document.getElementById('playe').play()"><img src="img/play.png"></a>
+<audio id="playe" src="jan.ogg"></audio>
+
 </div>
 
 
@@ -194,46 +303,39 @@ function resizeText(multiplier) {
     <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
   </div> 
   
-  <div data-role="main" class="ui-content margz">
+   <div data-role="main" class="ui-content margz">
+ <div class="ui-grid-solo  ui-responsive">
+ 
+<div class="ui-block-a center marg_btn10">
+<a class="mergicon" href="#sher1"  data-transition="fade" > <img src="img/farsi.png"></a>
+<a class="mergicon"   ng-click="faver(id);" > <img src="img/night.png"></a>
+<a class="mergicon"  onclick="window.plugins.socialsharing.share(document.getElementById('font2').innerHTML)"><img src="img/connection.png"></a>
+<a class="mergicon" href="#sher2"><img src="img/english.png"></a>
+</div> 
 
-    <div class="ui-grid-solo  ui-responsive">
 <div class="ui-block-a center">
-<a class="mergicon" href="#sher1"  data-transition="fade" >فارسی</a>
-<a class="mergicon" href="">ok2</a>
-<a class="mergicon" href="#sher2">انگلیسی</a>
+<a  >subject </a>
 </div>
-   <div class="ui-block-a">  
- <ul class="scroll"> 
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-<li >تو را حوالی امروز خواهم بوسید<br>تو را حوالی امروز خواهم بوسید</li>
-
-
-<li> بی ترس، بی دلهره
-</li>
-<li>در میان ازدحام عقربه ها
-</li>
-</ul>
-
+<div class="ui-block-a"> 
+ <ul class="scroll" id="font2"  ng-bind-html="myHTML2"> 
+  </ul>
 </div>
 
 <div class="ui-block-a center">
-<a class="mergicon" href="">salam</a>
-<a class="mergicon" href="">ok</a>
-<a class="mergicon" href="">close</a>
+<a class="mergicon"  onclick="resize_en(-1)"><img src="img/mainz.png"></a>
+<a class="mergicon" onclick="resize_en(1)"><img src="img/plus.png"></a>
+<a class="mergicon" ng-click="descript(ides)"><img src="img/pencil.png"></a>
+<a class="mergicon" onclick="document.getElementById('playe').pause()"><img src="img/track.png"></a>
+<a class="mergicon" onclick="document.getElementById('playe').play()"><img src="img/play.png"></a>
+<audio id="playe" src="jan.ogg"></audio>
+
 </div>
 
 
 </div>
 </div>
 </div>
+
 <!-- page end--------------------------------------------------------------->
 
 </div> 
