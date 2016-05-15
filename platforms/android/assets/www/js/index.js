@@ -62,8 +62,8 @@ db.transaction(table, errorCB, successCB);
 }
 
 function table(tx){  
-tx.executeSql('DROP TABLE IF EXISTS sher');
-tx.executeSql('DROP TABLE IF EXISTS settingg');
+//tx.executeSql('DROP TABLE IF EXISTS sher');
+//tx.executeSql('DROP TABLE IF EXISTS settingg');
 tx.executeSql('CREATE TABLE IF NOT EXISTS sher(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,ids INTEGER,title_fa text,title_tu text, voice text, direct text,faver INTEGER,dvoice INTEGER)');
 tx.executeSql('CREATE TABLE IF NOT EXISTS settingg(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, title text,valuem text, flag INTEGER, ids INTEGER,time INTEGER,uptime INTEGER, type INTEGER )');
 
