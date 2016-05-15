@@ -218,6 +218,7 @@ if(Onlins==0){
 Toast_Material({ content : "اتصال شما به اینترنت برقرار نیست !!", updown:"bottom", position:"center", align:"center" });	
 return 0;
 }	
+$scope.evoice="file:///storage/sdcard0/book_ghash/voice/"+File_Name;
 	$scope.bloader=false;
 	$scope.lmusic=true;
 	$scope.smusic=false;
@@ -274,6 +275,8 @@ false,
 				document.getElementById('smusic2').style.display="inline";
 				$scope.lmusic2=true;
 				$scope.smusic2=false;
+				
+				
 				}
 			//statusDom.innerHTML = perc + "% loaded...";
 		} else {

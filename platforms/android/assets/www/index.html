@@ -315,7 +315,7 @@ document.getElementById('font2').style.fontSize = parseFloat(document.getElement
 <a class="mergicon" onclick="resizeText(1)"><img src="img/plus.png"></a>
 <a class="mergicon" ng-click="descript(ides)"><img src="img/pencil.png"></a>
 <a class="mergicon" onclick="document.getElementById('playe').pause()"><img src="img/track.png"></a>
-<a class="mergicon" id="smusic" ng-hide="smusic" onclick="document.getElementById('playe').play()"><img src="img/play.png"></a>
+<a class="mergicon" id="smusic" ng-hide="smusic" onclick="document.getElementById('playe').play();"><img src="img/play.png"></a>
 <a class="mergicon" id="lmusic" ng-hide="lmusic" ng-click="download(esrcvoice,evoice,pageid)"><img src="img/musical.png"></a>
 <a class="mergicon bloader"  id="loaders"  ng-hide="bloader"><img src="img/load.png"><span id="bloader">0</span></a>
 <audio id="playe"  src="{{evoice}}"></audio>
